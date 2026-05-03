@@ -1,9 +1,10 @@
 {
-  "name": "SDO Biñan Vehicle Request",
-  "short_name": "Transpo Req",
+  "name": "SDO Biñan City Vehicle Request",
+  "short_name": "SDO Biñan Transpo",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#003366",
+  "theme_color": "#003366",
   "icons": [
     {
       "src": "logo-192.png",
