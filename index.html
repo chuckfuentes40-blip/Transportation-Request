@@ -1,0 +1,20 @@
+<DOCTYPE html>
+  <html>
+    <head>
+      <title>SDO Biñan City Vehicle Request</title>
+    </head>
+    <body>
+      <iframe src="https://script.google.com/macros/s/AKfycbwj8gfTWCSgQa_dxQi2fLZMC1yVvOMbpWi8-J3oSilCTjIp4YUpqylbAzDQSA7SZxwPiw/exec"
+        width="100%"
+        height="100%"
+        allowfullscreen="true"
+        style="position: fixed; top:0; left: 0; width: 100%; heigth: 100%; border: none;"></iframe>
+      <script>
+        windows.onload = function() {
+          document.querySelector('iframe').requestFullscreen().catch((err) =>{
+            console.error('Error attempting to enable full-screen mode: ${err.message}'};
+          });
+        };
+      </script>
+    </body>
+  </html>
