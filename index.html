@@ -18,7 +18,6 @@
       
       #splash-screen {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: #003366; 
         color: white;
         display: flex; flex-direction: column; 
         align-items: center; justify-content: center;
@@ -26,6 +25,31 @@
         cursor: pointer;
         transition: opacity 0.5s ease;
         font-family: sans-serif;
+        overflow: hidden;
+      }
+
+      /* Responsive Fullscreen Video Background */
+      #bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+
+      /* Content container overlay */
+      .splash-content {
+        text-align: center;
+        z-index: 1;
+        background: rgba(0, 51, 102, 0.45); /* Soft overlay to keep text readable */
+        padding: 20px 40px;
+        border-radius: 12px;
+        backdrop-filter: blur(4px);
       }
 
       iframe { 
@@ -36,11 +60,17 @@
   <body>
 
     <div id="splash-screen" onclick="launchApp()">
-      <div style="text-align: center;">
+      <!-- Responsive Video element -->
+      <video autoplay loop muted playsinline id="bg-video">
+        <source src="your-video-file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="splash-content">
         <h1>SDO Biñan City</h1>
         <p>Transportation Request System</p>
         <br>
-        <p style="font-weight: bold; border: 1px solid white; padding: 10px;">
+        <p style="font-weight: bold; border: 1px solid white; padding: 10px; border-radius: 6px;">
           CLICK TO ENTER
         </p>
       </div>
