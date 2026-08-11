@@ -60,9 +60,11 @@
   <body>
 
     <div id="splash-screen" onclick="launchApp()">
-      <!-- Responsive Video element -->
+      <!-- Responsive Video Element with Multiple Fallbacks -->
       <video autoplay loop muted playsinline id="bg-video">
-        <source src="your-video-file.mp4" type="video/mp4">
+        <source src="flash.mp4" type="video/mp4">
+        <source src="./flash.mp4" type="video/mp4">
+        <source src="https://raw.githubusercontent.com/chuckfuentes40-blip/Transportation-Request/main/flash.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
@@ -83,6 +85,21 @@
     </iframe>
 
     <script>
+      // Force Autoplay on Load
+      document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('bg-video');
+        if (video) {
+          video.muted = true;
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Retry playing on user interaction if initial attempt fails
+              document.body.addEventListener('click', () => video.play(), { once: true });
+            });
+          }
+        }
+      });
+
       function launchApp() {
         const splash = document.getElementById("splash-screen");
         
